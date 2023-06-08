@@ -1,0 +1,15 @@
+.*.swp
+*.so
+*.txt
+*.o
+.vscode
+.idea
+*.pyc
+.DS_Store
+__pycache__
+rebyval.egg-info
+data/
+build/
+dist/
+log/
+wandb/
