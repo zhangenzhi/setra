@@ -148,7 +148,7 @@ plt.imshow(img[0, :, :, slice_map[img_name]].detach().cpu(), cmap="gray")
 plt.subplot(1, 2, 2)
 plt.title("label")
 plt.imshow(label[0, :, :, slice_map[img_name]].detach().cpu())
-plt.show()
+# plt.show()
 
 
 device = torch.device("mps")
