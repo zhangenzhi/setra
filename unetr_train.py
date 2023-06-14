@@ -109,7 +109,7 @@ val_transforms = Compose(
     ]
 )
 
-data_dir = "./dataset/RawData/"
+data_dir = "./dataset/BVCT/"
 split_json = "spec.json"
 
 datasets = data_dir + split_json
