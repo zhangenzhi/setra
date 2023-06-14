@@ -5,10 +5,11 @@
 .vscode
 .idea
 *.pyc
+*.nii.gz
 .DS_Store
 __pycache__
 rebyval.egg-info
-data/
+dataset/RawData/
 build/
 dist/
 log/
