@@ -176,7 +176,7 @@ def validation(epoch_iterator_val):
     model.eval()
     with torch.no_grad():
         for batch in epoch_iterator_val:
-            val_inputs, val_labels = (batch["image"].to(device), batch["label"].to(device))
+            val_inputs, val_labels = (batch["image"].cuda(), batch["label"].cuda())
             val_outputs = sliding_window_inference(val_inputs, (96, 96, 96), 4, model)
             val_labels_list = decollate_batch(val_labels)
             val_labels_convert = [post_label(val_label_tensor) for val_label_tensor in val_labels_list]
@@ -196,7 +196,7 @@ def train(global_step, train_loader, dice_val_best, global_step_best):
     epoch_iterator = tqdm(train_loader, desc="Training (X / X Steps) (loss=X.X)", dynamic_ncols=True)
     for step, batch in enumerate(epoch_iterator):
         step += 1
-        x, y = (batch["image"].to(device), batch["label"].to(device))
+        x, y = (batch["image"].cuda(), batch["label"].cuda())
         logit_map = model(x)
         loss = loss_function(logit_map, y)
         loss.backward()
