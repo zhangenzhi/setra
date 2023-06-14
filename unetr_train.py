@@ -151,7 +151,7 @@ plt.imshow(label[0, :, :, slice_map[img_name]].detach().cpu())
 # plt.show()
 
 
-device = torch.device("mps")
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 model = UNETR(
     in_channels=1,
